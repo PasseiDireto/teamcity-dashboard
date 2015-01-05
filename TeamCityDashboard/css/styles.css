@@ -1,0 +1,138 @@
+@font-face {
+  font-family: Segoe UI;
+  src: url("../fonts/SegoeWP.ttf"); }
+
+@font-face {
+  font-family: Segoe UI Light;
+  src: url("../fonts/SegoeWP-Light.ttf"); }
+
+@font-face {
+  font-family: Segoe UI Semibold;
+  src: url("../fonts/SegoeWP-Semibold.ttf"); }
+
+body {
+  margin: 0;
+  x-background-image: url(../images/grid-unit.png);
+  background-color: #000;
+  color: #fff;
+  font-family: Segoe UI, Sans-Serif;
+  -webkit-overflow-scrolling: auto; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+h1,
+.xx-large {
+  font-family: Segoe UI Light, Sans-Serif;
+  font-size: 42pt;
+  line-height: 48pt;
+  margin: 0; }
+
+h2,
+.x-large {
+  font-family: Segoe UI Light, Sans-Serif;
+  font-size: 20pt;
+  line-height: 24pt;
+  margin: 0; }
+
+h3,
+.large {
+  font-family: Segoe UI, Sans-Serif;
+  font-size: 19px;
+  line-height: 22px;
+  margin: 0;
+  letter-spacing: 1px; }
+
+p,
+.medium {
+  font-family: Arial, Segoe UI, Sans-Serif;
+  font-size: 11pt;
+  line-height: 15pt; }
+
+h4,
+.small {
+  font-family: Arial, Segoe UI, Sans-Serif;
+  font-size: 10pt;
+  font-weight: normal;
+  line-height: 15pt; }
+
+#title {
+  margin: 20px 0 10px 100px; }
+
+#projectsContainer {
+  margin-left: 100px;
+  margin-right: 100px; }
+
+#pushMessagesContainer {
+  margin: 20px 0 0 100px; }
+  #pushMessagesContainer h2 {
+    margin-bottom: 10px; }
+  #pushMessagesContainer .item {
+    margin-right: 10px; }
+
+.item {
+  float: left;
+  margin-bottom: 10px;
+  width: 250px;
+  /*default width; we try to make them 120 with JS*/
+  min-height: 120px;
+  overflow: hidden; }
+  .item.event {
+    background-color: rgba(6, 82, 196, 0.8); }
+  .item.successful {
+    background-color: #363;
+    height: 120px; }
+  .item.failing {
+    background: #822; }
+  .item .item-images {
+    position: relative;
+    margin-bottom: 10px; }
+    .item .item-images.images-uneven-rows {
+      /* Add extra margin bottom to negate the uneven rows slidly misaligning the blocks*/
+      overflow: hidden;
+      margin-bottom: 5px; }
+    .item .item-images .full-size {
+      display: block;
+      width: 250px;
+      height: 250px; }
+    .item .item-images .half-size {
+      display: block;
+      float: left;
+      width: 125px;
+      height: 125px; }
+  .item .item-text {
+    position: relative;
+    clear: left;
+    display: block;
+    padding: 10px 10px 5px 10px;
+    box-sizing: border-box;
+    height: 120px;
+    overflow: hidden; }
+    .item .item-text .details {
+      float: left;
+      width: 145px; }
+      .item .item-text .details .small {
+        line-height: 14pt;
+        margin: 5px 0; }
+    .item .item-text .logo,
+    .item .item-text .pusher {
+      margin: 0 15px 5px 0;
+      max-width: 60px;
+      max-height: 60px;
+      float: left; }
+    .item .item-text .statistics-container .statistic .value {
+      font-size: 11pt;
+      float: right; }
+  .item .extra-text {
+    position: relative;
+    display: none;
+    padding: 0;
+    box-sizing: border-box; }
+    .item .extra-text h3 {
+      margin: 10px 0 0 20px;
+      font-weight: normal; }
+    .item .extra-text .chart {
+      width: 250px;
+      height: 85px; }
+
