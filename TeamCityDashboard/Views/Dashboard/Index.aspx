@@ -288,7 +288,7 @@
             });
 
         });
-        window.setTimeout(loadEvents.bind(this, layout), 10 * 1000);
+        //window.setTimeout(loadEvents.bind(this, layout), 10 * 1000);
     }
 
     /*
@@ -317,10 +317,10 @@
 </div>
 
 
-<div id="pushMessagesContainer">
+<%--<div id="pushMessagesContainer">
     <h2>Pushes to GitHub</h2>
     <div class="items"></div>
-</div>
+</div>--%>
 
 <script>
     window.grid = new MetroGrid();

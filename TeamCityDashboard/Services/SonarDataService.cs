@@ -42,7 +42,7 @@ namespace TeamCityDashboard.Services
           stats.CodeCoveragePercentage = double.Parse(data.SelectSingleNode("resources/resource/msr[key='coverage']/val").InnerText, CultureInfo.InvariantCulture);
 
         return stats;
-      }, 3600);
+      }, CACHE_DURATION);
 
       return result;
     }

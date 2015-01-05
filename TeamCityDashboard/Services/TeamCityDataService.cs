@@ -30,7 +30,8 @@ namespace TeamCityDashboard.Services
     /// <summary>
     /// retrieve the first 100 builds of the given buildconfig and retrieve the status of it
     /// </summary>
-    private const string URL_BUILDS_LIST = @"/httpAuth/app/rest/buildTypes/id:{0}/builds";
+    private const string URL_BUILDS_LIST = @"/httpAuth/app/rest/buildTypes/id:{0}/builds?fields=$long,build($short,startDate,finishDate)";
+    //private const string URL_BUILDS_LIST = @"/httpAuth/app/rest/buildTypes/id:{0}/builds";
 
     /// <summary>
     /// retrieve details of the given build ({0}) and verify that the /buildType/settings/property[@name='allowExternalStatus'] == 'true'
@@ -77,10 +78,15 @@ namespace TeamCityDashboard.Services
 
       foreach (XmlElement el in projectsPageContent.SelectNodes("//project"))
       {
+          //if (el.GetAttribute("id") != "_Root" && el.GetAttribute("id") != "PasseiDireto")
+          //{
+              
+          
         var project = ParseProjectDetails(el.GetAttribute("id"), el.GetAttribute("name"));
         if (project == null)
           continue;
         yield return project;
+          //}
       }
     }
 
@@ -95,7 +101,7 @@ namespace TeamCityDashboard.Services
       //determine details, archived? buildconfigs
       XmlDocument projectDetails = CacheService.Get<XmlDocument>("project-details-" + projectId, () => { 
         return GetPageContents(string.Format(URL_PROJECT_DETAILS, projectId)); 
-      }, 15 * 60);
+      }, CACHE_DURATION);
 
       if (projectDetails == null)
         return null;
@@ -162,7 +168,8 @@ namespace TeamCityDashboard.Services
         currentBuildSuccesfull = lastBuild.GetAttribute("status") == "SUCCESS";//we default to true
 
         //try to parse last date
-        string buildDate = lastBuild.GetAttribute("startDate");
+        string buildDate = lastBuild.SelectNodes("startDate")[0].InnerText;
+        //string buildDate = lastBuild.GetAttribute("startDate");
         DateTime theDate;
 
         //TeamCity date format => 20121101T134409+0100

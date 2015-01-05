@@ -29,7 +29,7 @@ namespace TeamCityDashboard.Services
     /// <summary>
     /// Duration to cache some things which almost never change
     /// </summary>
-    protected const int CACHE_DURATION = 3 * 60 * 60;//3 hours
+    protected const int CACHE_DURATION = 30;
 
     /// <summary>
     /// retrieve the content of given url and parse it to xmldocument. throws httpexception if raised
