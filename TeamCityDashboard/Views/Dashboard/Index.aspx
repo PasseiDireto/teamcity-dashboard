@@ -310,7 +310,7 @@
 </script>
 
 <div id="title">
-  <h2>Actual Continuous Integration Status</h2>
+  <h2>Continuous Integration Status</h2>
 </div>
 
 <div id="projectsContainer">
